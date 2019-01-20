@@ -12,10 +12,10 @@ Created with CodeSandbox
 * Bounce to reload?
 * Can a user bookmark or save good ones?
 * What can we do with likes and un-likes?
-
-## STYLING
+* STYLING
 * Animate incoming messages
-* Requirements - Server
+
+## Requirements - Server
 * Modularize the server so that you can test it
 * Test your units (functions), not the event wiring.
 * Add support for additional events
