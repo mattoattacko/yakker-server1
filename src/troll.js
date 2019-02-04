@@ -11,13 +11,24 @@ class TrollJohn extends React.Component {
     this.state = {
       typedInput: '',
       words: '',
+      wordHistory: [],
     };
 
     socket.on('incoming', payload => this.updateWords(payload));
+    socket.on('history', payload => this.loadHistory(payload));
   }
 
+  componentDidMount() {
+    socket.emit('history');
+  }
+
+  loadHistory = history => {
+    this.setState({wordHistory:history});
+  };
+
   updateWords = words => {
-    this.setState({ words });
+    socket.emit('history');
+    this.setState({ words: words });
   };
 
   handleSubmit = event => {
@@ -32,7 +43,7 @@ class TrollJohn extends React.Component {
   render() {
     return (
       <>
-        <h2>{this.state.words}</h2>
+        <h2>Latest Message: {this.state.words}</h2>
         <form onSubmit={this.handleSubmit}>
           <input
             name="typedInput"
