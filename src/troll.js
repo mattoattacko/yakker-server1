@@ -1,8 +1,8 @@
 import React from 'react';
 import io from 'socket.io-client';
 
-// const url = 'http://localhost:3000';
-const url = 'https://js-401-socket-io-server.herokuapp.com';
+const url = 'http://localhost:3000';
+// const url = 'https://js-401-socket-io-server.herokuapp.com';
 const socket = io.connect(url);
 
 class TrollJohn extends React.Component {
